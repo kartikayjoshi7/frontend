@@ -1,28 +1,8 @@
-pipeline {
-    agent {
-        label 'WORKSTATION'
-    }
+@Library('roboshop') _
 
-    triggers {
-        pollSCM('*/2 * * * *')
-        }
+//variable
+env.COMPONENT = "frontend"
+env.BUILD_LABEL = "WORKSTATION"
 
-    stages {
-
-    stage('Compile the code') {
-        steps {
-            sh 'echo compile code'
-        }
-    }
-    stage('Check the code quality') {
-            steps {
-                sh 'echo check the code quality'
-            }
-        }
-    stage('Test cases') {
-            steps {
-                sh 'echo Test cases'
-            }
-        }
-     }
-}
+//library
+nginx()
