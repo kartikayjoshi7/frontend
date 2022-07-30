@@ -35,7 +35,7 @@ resource "aws_lb_target_group_attachment" "tg-attach" {
 }
 
 
-resource "aws_lb_listener" "lb-listner" {
+resource "aws_lb_listener" "lb-listener" {
   load_balancer_arn = data.terraform_remote_state.alb.outputs.PUBLIC_LB_ARN
   port              = "80"
   protocol          = "HTTP"
