@@ -6,10 +6,9 @@ resource "aws_spot_instance_request" "ec2-spot" {
   tags = {
     Name = "${var.COMPONENT}-${var.ENV}-${count.index+1}"
   }
-  subnet_id = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNETS[count.index]
+  subnet_id            = data.terraform_remote_state.vpc.outputs.PUBLIC_SUBNETS[count.index]
   wait_for_fulfillment = true
 }
-
 
 
 resource "aws_ec2_tag" "spot-instances" {
