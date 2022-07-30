@@ -8,9 +8,8 @@ resource "null_resource" "app-deploy" {
       host     = aws_spot_instance_request.ec2-spot.*.private_ip[count.index]
     }
     inline = [
-      "ansible-pull -U https://github.com/kartikayjoshi7/ansible.git roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=${var.ENV}",
-      "consul join ${aws_instance.web.private_ip}",
+      "ansible-pull -U https://github.com/kartikayjoshi7/ansible.git roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=${var.ENV}"
+
     ]
   }
-}
 }
