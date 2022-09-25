@@ -5,4 +5,6 @@ env.COMPONENT = "frontend"
 env.BUILD_LABEL = "WORKSTATION"
 
 //library
-nginx()
+//nginx()
+
+immutable_nginx()
